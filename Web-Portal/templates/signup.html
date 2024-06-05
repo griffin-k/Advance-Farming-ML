@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Signup - Advanced Agriculture System</title>
+    <link rel="icon" href="https://img.freepik.com/premium-vector/agriculture-icon-logo-vector-design-template_827767-2376.jpg?w=826" type="image/x-icon">
+
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <style>
+        .form-container {
+            animation: fadeInDown 1s ease-out;
+            background-color: rgba(255, 255, 255, 0.8);
+            border-radius: 20px;
+            overflow: hidden;
+        }
+
+        @keyframes fadeInDown {
+            0% {
+                opacity: 0;
+                transform: translateY(-50px);
+            }
+
+            100% {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .form-container:hover {
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+        }
+
+        .form-container input[type="email"],
+        .form-container input[type="password"],
+        .form-container button {
+            transition: all 0.3s ease-in-out;
+        }
+
+        .form-container input[type="email"]:focus,
+        .form-container input[type="password"]:focus {
+            border-color: #4CAF50;
+            box-shadow: 0 0 10px rgba(76, 175, 80, 0.5);
+        }
+
+        .form-container button:hover {
+            background-color: #4CAF50;
+        }
+        .background-Image {
+            background-image: url('../static/sbg.jpg');
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-position: center;
+        }
+        
+    </style>
+</head>
+
+<body class="background-Image">
+    <!-- Navbar -->
+    <nav class="bg-green-700 p-4 rounded-bl-3xl rounded-br-3xl flex justify-center">
+        <div class="container mx-auto">
+            <a href="/" class="text-white text-lg font-semibold">Advanced Agriculture</a>
+        </div>
+    </nav>
+    
+    
+    
+    
+
+    <!-- Main Content -->
+    <div class="flex items-center justify-center h-screen">
+        <div class="bg-white p-8 rounded-lg shadow-lg w-full max-w-md form-container">
+            <h2 class="text-2xl font-semibold text-center mb-4">Signup</h2>
+            <form>
+                <div class="mb-4">
+                    <label for="email" class="block text-gray-700 font-bold mb-2">Email Address</label>
+                    <input type="email" id="email" name="email" class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:border-green-500" placeholder="Enter your email address" required>
+                </div>
+                <div class="mb-4">
+                    <label for="password" class="block text-gray-700 font-bold mb-2">Password</label>
+                    <input type="password" id="password" name="password" class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:border-green-500" placeholder="Enter your password" required>
+                </div>
+                <div class="mb-6">
+                    <label for="confirm-password" class="block text-gray-700 font-bold mb-2">Confirm Password</label>
+                    <input type="password" id="confirm-password" name="confirm-password" class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:border-green-500" placeholder="Confirm your password" required>
+                </div>
+                <div class="text-center">
+                    <button type="submit" class="px-4 py-2 bg-green-500 text-white rounded-md hover:bg-green-600 focus:outline-none focus:bg-green-600">Signup</button>
+                </div>
+            </form>
+            <p class="text-gray-600 mt-4 text-center">Already have an account? <a href="/login" class="text-green-500">Login</a></p>
+        </div>
+    </div>
+</body>
+
+
+    <script>
+        document.querySelector('form').addEventListener('submit', function(event) {
+            event.preventDefault(); 
+    
+            
+            var email = document.getElementById('email').value;
+            var password = document.getElementById('password').value;
+            var confirmPassword = document.getElementById('confirm-password').value;
+    
+            if (email.trim() === '' || password.trim() === '' || confirmPassword.trim() === '') {
+                alert('Please fill in all fields.'); 
+                return;
+            }
+    
+            if (password !== confirmPassword) {
+                alert('Passwords do not match. Please try again.'); 
+                return;
+            }
+    
+            window.location.href = '/index'; 
+        });
+    </script>
+    
+
+
+</html>
